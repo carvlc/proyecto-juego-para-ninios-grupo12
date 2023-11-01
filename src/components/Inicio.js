@@ -38,11 +38,11 @@ function Inicio() {
     if (!mostrarJuego && !mostrarFelicitaciones) {
         return (
             <div className='my-container'>
-                <h1 className='titulo'>Ingresa tu nombre</h1>
+                <h1 className='titulo'>Put your name</h1>
                 <input
                     className='input-name'
                     type="text"
-                    placeholder="Nombre del niño"
+                    placeholder="Child name"
                     onChange={(e) => setNombreJugador(e.target.value)}
                 />
                 <button className='btn-play' onClick={() => manejarClickJugar(nombreJugador)}>Play</button>
@@ -75,7 +75,7 @@ function Inicio() {
                 </div>
                 {
                     jugadores[0].puntaje > jugadores[1].puntaje ?
-                        <h1> ganador {jugadores[0].nombreJugador}</h1> : jugadores[0].puntaje < jugadores[1].puntaje ? <h1> ganador {jugadores[1].nombreJugador}</h1> : <h1>empate</h1>
+                        <h1> Winner {jugadores[0].nombreJugador}</h1> : jugadores[0].puntaje < jugadores[1].puntaje ? <h1> Winner {jugadores[1].nombreJugador}</h1> : <h1>Tie</h1>
                 }
             </>
 

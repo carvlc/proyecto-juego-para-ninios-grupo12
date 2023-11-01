@@ -63,8 +63,8 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual, se
 
     return (
         <div className='my-container'>
-            <h1 className='my-title'>{nombreJugador}, ¿Cuál es este animal?</h1>
-            <p className='ronda-actual'>Ronda actual: {rondaActual} / {rondasTotales}</p>
+            <h1 className='my-title'>{nombreJugador}, What is this animal?</h1>
+            <p className='ronda-actual'>Actual round: {rondaActual} / {rondasTotales}</p>
             <div className='imgagen-animal'>
                 <img src={`img/${animalObjetivo.nombreEsp}.PNG`} alt={animalObjetivo} />
             </div>
@@ -81,9 +81,9 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual, se
                     </button>
                 ))}
             </div>
-            {esCorrecto === true && <p>¡Correcto!</p>}
-            {esCorrecto === false && <p>¡Incorrecto!</p>}
-            <button className='btn-siguiente' onClick={siguienteRonda}>Siguiente</button>
+            {esCorrecto === true && <p>¡Correct!</p>}
+            {esCorrecto === false && <p>¡Incorrect!</p>}
+            <button className='btn-siguiente' onClick={siguienteRonda}>Next</button>
         </div>
     );
 }

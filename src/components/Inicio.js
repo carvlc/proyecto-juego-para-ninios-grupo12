@@ -13,6 +13,9 @@ function Inicio() {
     const [jugadorActual, setJugadorActual] = useState(1);
     const [jugadores, setJugadores] = useState([]);
 
+    //para el comodin
+    const [comodin, setComodin] = useState(false);
+
     const manejarClickJugar = (nombre) => {
         setNombreJugador(nombre);
         setMostrarJuego(true);
@@ -25,6 +28,7 @@ function Inicio() {
             setJugadores([...jugadores, { nombreJugador, puntaje, rondasTotales }]);
             setJugadorActual(2);
             setMostrarJuego(false);
+            setComodin(false);
             setRondaActual(1)
         } else {
             setJugadores([...jugadores, { nombreJugador, puntaje, rondasTotales }]);
@@ -58,6 +62,8 @@ function Inicio() {
                     alTerminar={alTerminar}
                     rondaActual={rondaActual}
                     setRondaActual={setRondaActual}
+                    comodin={comodin}
+                    setComodin={setComodin}
                 />
             </div>
         );

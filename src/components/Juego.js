@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import animales from './../data/animales.json';
 import './Juego.css';
 
-function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual, setRondaActual }) {
+function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual, setRondaActual, comodin, setComodin }) {
     const [animalObjetivo, setAnimalObjetivo] = useState('');
     const [opciones, setOpciones] = useState([]);
     const [esCorrecto, setEsCorrecto] = useState(null);
@@ -33,6 +33,19 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual, se
         setOpciones(opcionesAleatorias);
         setAnimalObjetivo(animalCorrecto);
     };
+    const usarComodin = () =>{
+        if (!comodin) {
+            setComodin(true);
+            for (let i = 0; i < opciones.length; i++) {
+                if (opciones.length > 2) {
+                    if (opciones[i].nombreIng !== animalObjetivo.nombreIng) {
+                        const opcionesComodin = opciones.filter(op => op.nombreIng != opciones[i].nombreIng);
+                        setOpciones(opcionesComodin);
+                    }
+                }
+            }
+        }
+    }
 
     const verificarRespuesta = (animalSeleccionado) => {
         if (animalSeleccionado.nombreIng === animalObjetivo.nombreIng) {
@@ -84,6 +97,8 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual, se
             {esCorrecto === true && <p>¡Correct!</p>}
             {esCorrecto === false && <p>¡Incorrect!</p>}
             <button className='btn-siguiente' onClick={siguienteRonda}>Next</button>
+            {!comodin? <button className='btn-comodin' onClick={usarComodin}>Usar Comodin</button>: <></>}
+            
         </div>
     );
 }
